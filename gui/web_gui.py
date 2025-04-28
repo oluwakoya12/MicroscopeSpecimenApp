@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from app.logic import process_input
+import os
 from app.database import init_db, get_all_records
 
 app = Flask(__name__)
@@ -19,5 +20,7 @@ def view_records():
     records = get_all_records()
     return render_template('records.html', records=records)
 
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
