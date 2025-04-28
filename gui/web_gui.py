@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from app.logic import process_input
-from app.db import init_db, get_all_records
+from app.database import init_db, get_all_records
 
 app = Flask(__name__)
 init_db()
